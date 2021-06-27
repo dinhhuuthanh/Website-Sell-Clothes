@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.js" />
+    <link rel="stylesheet" href="js/jquery-3.5.1.js" />
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<script>
+    $(document).ready(function () {
+        $('#btn-prev').click(function (event) {
+            var slide_sau = $('.active').next();
+            if (slide_sau.length != 0) {
+                $('.active').addClass('bien-mat-ben-trai').one('webkitAnimationEnd', function (event) {
+                    $('.bien-mat-ben-trai').removeClass('bien-mat-ben-trai').removeClass(
+                        'active');
+                });
+                slide_sau.addClass('active').addClass('di-vao-ben-phai').one('webkitAnimationEnd',
+                    function (event) {
+                        $('.di-vao-ben-phai').removeClass('di-vao-ben-phai');
+                    });
+            } else {
+                $('.active').addClass('bien-mat-ben-trai').one('webkitAnimationEnd', function (event) {
+                    $('.bien-mat-ben-trai').removeClass('bien-mat-ben-trai').removeClass(
+                        'active');
+                });
+                $('.slide:first-child').addClass('active').addClass('di-vao-ben-phai').one(
+                    'webkitAnimationEnd',
+                    function (event) {
+                        $('.di-vao-ben-phai').removeClass('di-vao-ben-phai');
+                    });
+            }
+        });
+    });
+
+
+
+
+
+
+    $(document).ready(function () {
+        $('#btn-next').click(function (event) {
+            var slide_sau = $('.active').next();
+            if (slide_sau.length != 0) {
+                $('.active').addClass('bien-mat-ben-phai').one('webkitAnimationEnd', function (event) {
+                    $('.bien-mat-ben-phai').removeClass('bien-mat-ben-phai').removeClass(
+                        'active');
+                });
+                slide_sau.addClass('active').addClass('di-vao-ben-trai').one('webkitAnimationEnd',
+                    function (event) {
+                        $('.di-vao-ben-trai').removeClass('di-vao-ben-trai');
+                    });
+            } else {
+                $('.active').addClass('bien-mat-ben-phai').one('webkitAnimationEnd', function (event) {
+                    $('.bien-mat-ben-phai').removeClass('bien-mat-ben-phai').removeClass(
+                        'active');
+                });
+                $('.slide:first-child').addClass('active').addClass('di-vao-ben-trai').one(
+                    'webkitAnimationEnd',
+                    function (event) {
+                        $('.di-vao-ben-trai').removeClass('di-vao-ben-trai');
+                    });
+            }
+        });
+    });
+</script>
+
+<body>
+    <div class="wrapper">
+        <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+        <!-- footer -->
+        <div class="footer">
+            <!-- logo -->
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="" /></a>
+            </div>
+            <!-- /logo -->
+            <div class="search">
+                <form action="">
+                    <input type="text" placeholder="Tìm kiếm" class="task" />
+                    <button type="submit" class="button">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <a href="#" id="size"><img src="img/search .png" alt="" id="size" /></a>
+                    </button>
+                </form>
+            </div>
+            <div class="position">
+                <a href="#"><img src="img/pin.png" alt="" /></a>
+            </div>
+            <div class="cart">
+                <a href="#"><img src="img/cart .png" alt="" /></a>
+            </div>
+        </div>
+        <!-- /footer -->
+        <!-- menu -->
+
+        <div class="menu">
+            <ul class="ul">
+                <li class="item"><a href="#">TRANG CHỦ</a></li>
+
+                <li class="item">
+                    <a href="#">ÁO SƠ MI</a>
+
+                    <ul class="sub-menu">
+                        <li><a href="#">SƠ MI NGẮN TAY</a></li>
+
+                        <li><a href="#">SƠ MI DÀI TAY</a></li>
+                        <li><a href="#">ÁO CHỐNG NẮNG</a></li>
+                    </ul>
+                </li>
+
+                <li class="item">
+                    <a href="#">ÁO THUN NAM</a>
+
+                    <ul class="sub-menu">
+                        <li><a href="#">ÁO POLO</a></li>
+
+                        <li><a href="#">ÁO THUN KHÔNG CỔ</a></li>
+                    </ul>
+                </li>
+
+                <li class="item">
+                    <a href="#">QUẦN NAM</a>
+
+                    <ul class="sub-menu">
+                        <li><a href="#">QUẦN JEANS</a></li>
+
+                        <li><a href="#">QUẦN KAKI</a></li>
+                        <li><a href="#">QUẦN SHORT</a></li>
+                        <li><a href="#">QUẦN ÂU, QUẦN VẢI</a></li>
+                        <li><a href="#">KHÁC</a></li>
+                    </ul>
+                </li>
+
+                <li class="item">
+                    <a href="#">PHỤ KIỆN</a>
+
+                    <ul class="sub-menu">
+                        <li><a href="#">GIÀY DA</a></li>
+                        <li><a href="#">THẮT LƯNG</a></li>
+                        <li><a href="#">TÚI XÁCH, BALO</a></li>
+                        <li><a href="#">VÍ DA</a></li>
+                        <li><a href="#">KHĂN QUÀNG, MŨ LEN</a></li>
+                        <li><a href="#">ĐỒ LÓT NAM</a></li>
+                    </ul>
+                </li>
+
+                <li class="item">
+                    <a href="#">SALE OFF</a>
+
+                    <ul class="sub-menu">
+                        <li><a href="#">QUẦN SALE</a></li>
+
+                        <li><a href="#">SƠ MI SALE</a></li>
+                        <li><a href="#">ÁO THUN SALE</a></li>
+                    </ul>
+                </li>
+
+                <li class="item"><a href="#">TIN TỨC</a></li>
+                <li class="item"><a href="#">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+
+        <!-- /menu -->
+
+
+        <!-- content -->
+        <div class="content">
+            <div class="khoi-slide">
+                <div class="cac-slide">
+                    <div class="slide active"><img src="img/category-banner.jpg" /></div>
+                    <div class="slide"><img src="img/category-banner.jpg" /></div>
+                    <div class="slide"><img src="img/category-banner.jpg" /></div>
+
+                    <div class="slide"><img src="img/category-banner.jpg" /></div>
+                </div>
+                <div class="nut-slide">
+                    <ul>
+                        <li class="active_nut"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+                <a href="#">
+                    <div class="arrow-left" id="btn-prev"></div>
+                </a>
+
+                <a href="#">
+                    <div class="arrow-right" id="btn-next"></div>
+                </a>
+            </div>
+        </div>
+        <div class="title-main">
+            <div class="title1">
+                <a href="#">TRANG CHỦ</a>
+                <a href="#"> / ÁO SƠ MI</a>
+                <a href="#">/ SƠ MI NGẮN TAY</a>
+            </div>
+            <div class="sort">
+
+                <p>Sắp xếp theo </p> <input type="button" value="Mặc định">
+                <input type="button" value="Mới nhất">
+                <input type="button" value="Xem nhiều nhất">
+                <select name="" id="price">
+                    <option value="0">Giá</option>
+                    <option value="0">Giá tăng</option>
+                    <option value="0">Giá giảm</option>
+
+
+
+
+                </select>
+                <select name="" id="Selection">
+                    <option value="0">Lựa chọn</option>
+                    <option value="0">Mới nhất </option>
+                    <option value="0">Xem nhiều nhất</option>
+                    <option value="0">Nhiều nhận xét</option>
+
+                    <option value="0">Đánh giá cao nhất</option>
+                    <option value="0">A->Z</option>
+
+
+
+                </select>
+            </div>
+        </div>
+        <div class="main">
+            <div class="left">
+                <div class="menu1">
+                    <ul class="ul">
+                        <li class="item1"><a href="#" style=" margin-left: 22px;"> <img src="img/open-menu.png" alt=""
+                                    class="open-menu"> DANH
+                                MỤC</a>
+                        </li>
+
+                        <li class="item">
+                            <a href="#" style=""><img src="img/plus.png" alt="" class="size"> ÁO SƠ MI</a>
+
+                            <ul class="sub-menu1" id="sub1">
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1"> SƠ MI NGẮN TAY</a></li>
+
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">SƠ MI DÀI TAY</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">ÁO CHỐNG NẮNG</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="item">
+                            <a href="#"><img src="img/plus.png" alt="" class="size">ÁO THUN NAM</a>
+
+                            <ul class="sub-menu1" id="sub2">
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">ÁO POLO</a></li>
+
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">ÁO THUN KHÔNG CỔ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="item">
+                            <a href="#"><img src="img/plus.png" alt="" class="size">QUẦN NAM</a>
+
+                            <ul class="sub-menu1" id="sub3">
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">QUẦN JEANS</a></li>
+
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">QUẦN KAKI</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">QUẦN SHORT</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">QUẦN ÂU, QUẦN VẢI</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">KHÁC</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="item">
+                            <a href="#"><img src="img/plus.png" alt="" class="size">PHỤ KIỆN</a>
+
+                            <ul class="sub-menu1" id="sub4">
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">GIÀY DA</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">THẮT LƯNG</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">TÚI XÁCH, BALO</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">VÍ DA</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">KHĂN QUÀNG, MŨ LEN</a>
+                                </li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">ĐỒ LÓT NAM</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="item">
+                            <a href="#"><img src="img/plus.png" alt="" class="size">SALE OFF</a>
+
+                            <ul class="sub-menu1" id="sub5">
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">QUẦN SALE</a></li>
+
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">SƠ MI SALE</a></li>
+                                <li><a href="#"><img src="img/minus.png" alt="" class="size1">ÁO THUN SALE</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="row-1" id="row">
+                    <a href="detail.html"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+                <div class="row-2" id="row">
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                    <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+                        <p>Áo thun kẻ ngang AT-1072</p>
+                        <p id="red">235.000đ</p>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!-- /content -->
+
+
+        <!-- footer-bot -->
+        <div class="footer-bot">
+            <div class="contact">
+                <h2>THÔNG TIN LIÊN HỆ</h2>
+                <h3>Cửa hàng tại Hà Nội</h3>
+                <h3>Tổng Đài Online: 0913 906166</h3>
+                <a href="#">146 Xã Đàn, Đống Đa</a>
+                <br />
+                <a href="#">51 Xuân Thủy, Cầu Giấy</a>
+                <br />
+                <a href="#">390 Quang Trung, Hà Đông</a>
+                <h2>Chi nhánh tỉnh</h2>
+                <a href="#">41 Nguyễn Đức Cảnh, Hải Phòng - 0941103838</a>
+                <br />
+                <a href="#">210 Tống Duy Tân, Thanh Hóa - 0916072258</a>
+                <br />
+                <a href="#">13 Trần Hưng Đạo, Hạ Long, QN - 088 666 62 63</a>
+            </div>
+            <div class="about-me">
+                <h2>VỀ CHÚNG TÔI</h2>
+                <a href="#">Fanpage cộng đồng</a>
+                <br />
+                <a href="#">Chính sách bảo mật</a>
+                <br />
+                <a href="#">Tuyển dụng</a>
+                <h1>THÔNG TIN KHÁC</h1>
+                <a href="#">Chính sách đổi trả</a>
+                <br />
+                <a href="#">Chính sách khách hàng thân thiết</a>
+                <br />
+                <a href="#">Hướng dẫn mua hàng</a>
+            </div>
+            <div class="notification">
+                <h2>ĐĂNG KÝ NHẬN THÔNG BÁO</h2>
+
+                <p>
+                    Đăng ký nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất từ
+                    H2T
+                </p>
+                <input type="text" placeholder="Nhập địa chỉ email tại đây" class="email" />
+                <input type="button" name="" id=" " class="email-button" />
+                <p>EMAIL liên hệ: thanh257t@gmail.com</p>
+
+                <p>Công ty cổ phần thời trang T&C Việt Nam</p>
+
+                <p>
+                    Tổ 1, ngõ 40, tổ 14, phố Nguyễn Thị Định, p Nhân Chính, Q Thanh
+                    Xuân, TP Hà Nội
+                </p>
+
+                <p>MST 0106533311</p>
+            </div>
+
+            <!-- /footer-bot -->
+        </div>
+</body>
+<script>
+    $(window).scroll(function () {
+        var height = $(window).scrollTop();
+        if (height > 100) {
+            $('#back2Top').fadeIn();
+        } else {
+            $('#back2Top').fadeOut();
+        }
+    });
+    $(document).ready(function () {
+        $("#back2Top").click(function (event) {
+            event.preventDefault();
+            $("html, body").animate({
+                scrollTop: 0
+            }, "slow");
+            return false;
+        });
+
+    });
+</script>
+
+</html>

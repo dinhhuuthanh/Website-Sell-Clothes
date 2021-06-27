@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css" />
+  <link rel="stylesheet" href="bootstrap/js/bootstrap.bundle.js" />
+  <link rel="stylesheet" href="js/jquery-3.5.1.js" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+</head>
+<script>
+  $(document).ready(function () {
+    $("#btn-prev").click(function (event) {
+      var slide_sau = $(".active").next();
+      if (slide_sau.length != 0) {
+        $(".active")
+          .addClass("bien-mat-ben-trai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".bien-mat-ben-trai")
+              .removeClass("bien-mat-ben-trai")
+              .removeClass("active");
+          });
+        slide_sau
+          .addClass("active")
+          .addClass("di-vao-ben-phai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".di-vao-ben-phai").removeClass("di-vao-ben-phai");
+          });
+      } else {
+        $(".active")
+          .addClass("bien-mat-ben-trai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".bien-mat-ben-trai")
+              .removeClass("bien-mat-ben-trai")
+              .removeClass("active");
+          });
+        $(".slide:first-child")
+          .addClass("active")
+          .addClass("di-vao-ben-phai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".di-vao-ben-phai").removeClass("di-vao-ben-phai");
+          });
+      }
+    });
+  });
+
+  $(document).ready(function () {
+    $("#btn-next").click(function (event) {
+      var slide_sau = $(".active").next();
+      if (slide_sau.length != 0) {
+        $(".active")
+          .addClass("bien-mat-ben-phai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".bien-mat-ben-phai")
+              .removeClass("bien-mat-ben-phai")
+              .removeClass("active");
+          });
+        slide_sau
+          .addClass("active")
+          .addClass("di-vao-ben-trai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".di-vao-ben-trai").removeClass("di-vao-ben-trai");
+          });
+      } else {
+        $(".active")
+          .addClass("bien-mat-ben-phai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".bien-mat-ben-phai")
+              .removeClass("bien-mat-ben-phai")
+              .removeClass("active");
+          });
+        $(".slide:first-child")
+          .addClass("active")
+          .addClass("di-vao-ben-trai")
+          .one("webkitAnimationEnd", function (event) {
+            $(".di-vao-ben-trai").removeClass("di-vao-ben-trai");
+          });
+      }
+    });
+  });
+
+  // $(document).ready(function () {
+  //     $('#btn-next').click(function (event) {
+  //         var slide_sau = $('.active').next();
+  //         if (slide_sau.length != 0) {
+  //             $('.active').addClass('bien-mat-ben-trai').one('webkitAnimationEnd', function (event) {
+  //                 $('.bien-mat-ben-trai').removeClass('bien-mat-ben-trai').removeClass(
+  //                     'active');
+  //             });
+  //             slide_sau.addClass('active').addClass('di-vao-ben-phai').one('webkitAnimationEnd',
+  //                 function (event) {
+  //                     $('.di-vao-ben-phai').removeClass('di-vao-ben-phai');
+  //                 });
+  //             // xử lý nút
+  //             $('.nut-slide ul li').removeClass('active_nut');
+  //             $('.nut-slide ul li:nth-child(' + (vi_tri_hien_tai + 1) + ')').addClass('active_nut');
+  //         } else {
+  //             $('.active').addClass('bien-mat-ben-trai').one('webkitAnimationEnd', function (event) {
+  //                 $('.bien-mat-ben-trai').removeClass('bien-mat-ben-trai').removeClass(
+  //                     'active');
+  //             });
+  //             $('.slide:first-child').addClass('active').addClass('di-vao-ben-phai').one(
+  //                 'webkitAnimationEnd',
+  //                 function (event) {
+  //                     $('.di-vao-ben-phai').removeClass('di-vao-ben-phai');
+  //                 });
+  //             // xử lý nút
+  //             $('.nut-slide ul li').removeClass('active_nut');
+  //             $('.nut-slide ul li:nth-child(1)').addClass('active_nut');
+  //         }
+  //     });
+  // });
+
+  // $('.nut-slide ul li').click(function (event) {
+  //     clearInterval(autoLoad);
+  //     var vi_tri_hien_tai = $('.active_nut').index() + 1;
+  //     var vi_tri_click = $(this).index() + 1;
+  //     $('.nut-slide ul li').removeClass('active_nut');
+  //     $(this).addClass('active_nut');
+  //     if (vi_tri_click > vi_tri_hien_tai) {
+  //         $('.active').addClass('bien-mat-ben-trai').one('webkitAnimationEnd', function (event) {
+  //             $('.bien-mat-ben-trai').removeClass('bien-mat-ben-trai').removeClass('active');
+  //         });
+  //         $('.slide:nth-child(' + vi_tri_click + ')').addClass('active').addClass('di-vao-ben-phai').one(
+  //             'webkitAnimationEnd',
+  //             function (event) {
+  //                 $('.di-vao-ben-phai').removeClass('di-vao-ben-phai');
+  //             });
+  //     }
+  //     if (vi_tri_click < vi_tri_hien_tai) {
+  //         $('.active').addClass('bien-mat-ben-phai').one('webkitAnimationEnd', function (event) {
+  //             $('.bien-mat-ben-phai').removeClass('bien-mat-ben-phai').removeClass('active');
+  //         });
+  //         $('.slide:nth-child(' + vi_tri_click + ')').addClass('active').addClass('di-vao-ben-trai').one(
+  //             'webkitAnimationEnd',
+  //             function (event) {
+  //                 $('.di-vao-ben-trai').removeClass('di-vao-ben-trai');
+  //             });
+  //     }
+  // });
+</script>
+
+<body>
+  <!-- wrapper -->
+  <div class="wrapper">
+    <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+    <!-- footer -->
+    <div class="footer">
+      <!-- logo -->
+      <div class="logo">
+        <a href="index.html"><img src="img/logo.png" alt="" /></a>
+      </div>
+      <!-- /logo -->
+      <div class="search">
+        <form action="">
+          <input type="text" placeholder="Tìm kiếm" class="task" />
+          <button type="submit" class="button">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <a href="#" id="size"><img src="img/search .png" alt="" id="size" /></a>
+          </button>
+        </form>
+      </div>
+      <div class="position">
+        <a href="#"><img src="img/pin.png" alt="" /></a>
+      </div>
+      <div class="cart">
+        <a href="#"><img src="img/cart .png" alt="" /></a>
+      </div>
+    </div>
+    <!-- /footer -->
+    <!-- menu -->
+
+    <div class="menu">
+      <ul class="ul">
+        <li class="item"><a href="#">TRANG CHỦ</a></li>
+
+        <li class="item">
+          <a href="#">ÁO SƠ MI<img src="img/down-arrow.png" alt="" class="down-arrow"><img src="img/down-arrow (1).png"
+              alt="" class="down-arrow1"></a>
+
+          <ul class="sub-menu">
+            <li><a href="category.html">SƠ MI NGẮN TAY</a></li>
+
+            <li><a href="#">SƠ MI DÀI TAY</a></li>
+            <li><a href="#">ÁO CHỐNG NẮNG</a></li>
+          </ul>
+        </li>
+
+        <li class="item">
+          <a href="#">ÁO THUN NAM<img src="img/down-arrow.png" alt="" class="down-arrow"><img
+              src="img/down-arrow (1).png" alt="" class="down-arrow1"></a>
+
+          <ul class="sub-menu">
+            <li><a href="#">ÁO POLO</a></li>
+
+            <li><a href="#">ÁO THUN KHÔNG CỔ</a></li>
+          </ul>
+        </li>
+
+        <li class="item">
+          <a href="#">QUẦN NAM<img src="img/down-arrow.png" alt="" class="down-arrow"><img src="img/down-arrow (1).png"
+              alt="" class="down-arrow1"></a>
+
+          <ul class="sub-menu">
+            <li><a href="#">QUẦN JEANS</a></li>
+
+            <li><a href="#">QUẦN KAKI</a></li>
+            <li><a href="#">QUẦN SHORT</a></li>
+            <li><a href="#">QUẦN ÂU, QUẦN VẢI</a></li>
+            <li><a href="#">KHÁC</a></li>
+          </ul>
+        </li>
+
+        <li class="item">
+          <a href="#">PHỤ KIỆN<img src="img/down-arrow.png" alt="" class="down-arrow"><img src="img/down-arrow (1).png"
+              alt="" class="down-arrow1"></a>
+
+          <ul class="sub-menu">
+            <li><a href="#">GIÀY DA</a></li>
+            <li><a href="#">THẮT LƯNG</a></li>
+            <li><a href="#">TÚI XÁCH, BALO</a></li>
+            <li><a href="#">VÍ DA</a></li>
+            <li><a href="#">KHĂN QUÀNG, MŨ LEN</a></li>
+            <li><a href="#">ĐỒ LÓT NAM</a></li>
+          </ul>
+        </li>
+
+        <li class="item">
+          <a href="#">SALE OFF<img src="img/down-arrow.png" alt="" class="down-arrow"><img src="img/down-arrow (1).png"
+              alt="" class="down-arrow1"></a>
+
+          <ul class="sub-menu">
+            <li><a href="#">QUẦN SALE</a></li>
+
+            <li><a href="#">SƠ MI SALE</a></li>
+            <li><a href="#">ÁO THUN SALE</a></li>
+          </ul>
+        </li>
+
+        <li class="item"><a href="#">TIN TỨC</a></li>
+        <li class="item"><a href="#">LIÊN HỆ</a></li>
+      </ul>
+    </div>
+
+    <!-- /menu -->
+    <!-- content -->
+    <div class="content">
+      <div class="khoi-slide">
+        <div class="cac-slide">
+          <div class="slide active"><img src="img/silde.jpg" /></div>
+          <div class="slide"><img src="img/silde.jpg" /></div>
+          <div class="slide"><img src="img/silde.jpg" /></div>
+
+          <div class="slide"><img src="img/silde.jpg" /></div>
+        </div>
+        <div class="nut-slide">
+          <ul>
+            <li class="active_nut"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+
+        <a href="#">
+          <div class="arrow-left" id="btn-prev"></div>
+        </a>
+
+        <a href="#">
+          <div class="arrow-right" id="btn-next"></div>
+        </a>
+      </div>
+
+      <div class="review">
+        <div class="video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/0dl927GDRRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <a href="#"><img src="img/back-ground.jpg" alt="" /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- /content -->
+    <div class="substance">
+      <!-- t-shirt -->
+      <div class="Shirt1">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="detail.html"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+
+              <div class="star-rating">
+                <div class="star-rating__wrap">
+                  <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5"
+                    title="5 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4"
+                    title="4 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3"
+                    title="3 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2"
+                    title="2 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1"
+                    title="1 out of 5 stars"></label>
+                </div>
+              </div>
+              <p id="red">235.000đ</p>
+
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2554__nik2471.jpg" alt="" />
+              <p>Áo thun kẻ ngang AT-1072</p>
+              <p id="red">235.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /t-shirt -->
+
+      <!-- polo shirt -->
+
+      <div class="Shirt2">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3038_bog_0358.jpg" alt="" />
+              <p>Áo phông polo AP-1074</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /polo shirt -->
+
+      <!-- short -->
+      <div class="Shirt3">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3137__nik7402.jpg" alt="" />
+              <p>Quần short kaki nam QSH0-1114</p>
+              <p id="red">395.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /short -->
+      <!-- shirt -->
+      <div class="Shirt4">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3068__nik5124.jpg" alt="" />
+              <p>Sơ mi họa tiết ngắn tay SM 1076</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /shirt -->
+
+      <!-- shimmy -->
+
+      <div class="Shirt5">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3150__26a7699.jpg" alt="" />
+              <p>Áo sơ mi kaki SJ 1083</p>
+              <p id="red">350.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /shimmy -->
+
+      <!-- trousers -->
+      <div class="Shirt6">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_3169__26a6963.jpg" alt="" />
+              <p>Quần Âu Công Sở QH19-0627</p>
+              <p id="red">400.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /trousers -->
+
+      <!-- Belt -->
+      <div class="Shirt7">
+        <div class="background">
+          <div class="row-1" id="row">
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+          </div>
+
+          <div class="row-2" id="row">
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+            <a href="#"><img src="img/250_2994__nik8986.jpg" alt="" />
+              <p>Thắt lưng da nam TLCD-1163</p>
+              <p id="red">595.000đ</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- /Belt -->
+    </div>
+    <!-- footer-bot -->
+    <div class="footer-bot">
+      <div class="contact">
+        <h2>THÔNG TIN LIÊN HỆ</h2>
+        <h3>Cửa hàng tại Hà Nội</h3>
+        <h3>Tổng Đài Online: 0913 906166</h3>
+        <a href="#">146 Xã Đàn, Đống Đa</a>
+        <br />
+        <a href="#">51 Xuân Thủy, Cầu Giấy</a>
+        <br />
+        <a href="#">390 Quang Trung, Hà Đông</a>
+        <h2>Chi nhánh tỉnh</h2>
+        <a href="#">41 Nguyễn Đức Cảnh, Hải Phòng - 0941103838</a>
+        <br />
+        <a href="#">210 Tống Duy Tân, Thanh Hóa - 0916072258</a>
+        <br />
+        <a href="#">13 Trần Hưng Đạo, Hạ Long, QN - 088 666 62 63</a>
+      </div>
+      <div class="about-me">
+        <h2>VỀ CHÚNG TÔI</h2>
+        <a href="#">Fanpage cộng đồng</a>
+        <br />
+        <a href="#">Chính sách bảo mật</a>
+        <br />
+        <a href="#">Tuyển dụng</a>
+        <h1>THÔNG TIN KHÁC</h1>
+        <a href="#">Chính sách đổi trả</a>
+        <br />
+        <a href="#">Chính sách khách hàng thân thiết</a>
+        <br />
+        <a href="#">Hướng dẫn mua hàng</a>
+      </div>
+      <div class="notification">
+        <h2>ĐĂNG KÝ NHẬN THÔNG BÁO</h2>
+
+        <p>
+          Đăng ký nhận thông tin khuyến mãi và cập nhật sản phẩm mới nhất từ
+          H2T
+        </p>
+        <input type="text" placeholder="Nhập địa chỉ email tại đây" class="email" />
+        <input type="button" name="" id=" " class="email-button" />
+        <p>EMAIL liên hệ: thanh257t@gmail.com</p>
+
+        <p>Công ty cổ phần thời trang T&C Việt Nam</p>
+
+        <p>
+          Tổ 1, ngõ 40, tổ 14, phố Nguyễn Thị Định, p Nhân Chính, Q Thanh
+          Xuân, TP Hà Nội
+        </p>
+
+        <p>MST 0106533311</p>
+      </div>
+    </div>
+    <!-- /footer-bot -->
+  </div>
+  <!-- wrapper -->
+</body>
+
+<script>
+  $(window).scroll(function () {
+    var height = $(window).scrollTop();
+    if (height > 100) {
+      $('#back2Top').fadeIn();
+    } else {
+      $('#back2Top').fadeOut();
+    }
+  });
+  $(document).ready(function () {
+    $("#back2Top").click(function (event) {
+      event.preventDefault();
+      $("html, body").animate({
+        scrollTop: 0
+      }, "slow");
+      return false;
+    });
+
+  });
+</script>
+
+</html>
