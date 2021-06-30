@@ -653,3 +653,5 @@ img {
 .star-rating__input:checked~.star-rating__ico:before {
   content: "\f005";
 }
+
+
